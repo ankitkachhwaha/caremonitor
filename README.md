@@ -1,27 +1,75 @@
-# Caremonitor
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.20.
+# CareMonitor Angular Challenge
 
-## Development server
+## Overview
+This is an Angular 18 application built as part of the CareMonitor interview challenge.  
+It demonstrates authentication, route guards, lazy loading, state management, UI design, and testing in a clean, production-like structure.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+# Features
+- **Login Page**
+  - Reactive form with validation.
+  - Cookie-based authentication (`ngx-cookie-service`).
+  - Redirects to dashboard after successful login.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Authentication**
+  - Route guard (`AuthGuard`) protects dashboard and list routes.
+  - Separate LoginGuard prevents logged-in users from revisiting the login page.
+  - Logout clears cookie + state.
 
-## Build
+- **Dashboard**
+  - Displays logged-in user’s email.
+  - Navigation to the List page.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **List Page (Lazy Loaded)**
+  - Uses **NgRx Component Store** for state management.
+  - Fetches items from a **backservice**.
+  - Handles **loading** and **error** states gracefully.
 
-## Running unit tests
+- **Mock Backend**
+  - `/api/login` → returns token + user object.
+  - `/api/items` → returns array of items (requires auth token).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **UI/UX**
+  - Angular Material components.
+  - Clean SCSS with responsive breakpoints.
 
-## Running end-to-end tests
+- **Testing**
+  - Unit tests for services, stores, and components.
+  - Run with `ng test --code-coverage`.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+Architecture & Approach
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Layers
+- **Core Layer**  
+  - `AuthService`, `UserStore`, guards, interceptors.
+- **Features**  
+  - Login, Dashboard, List (lazy-loaded).
+- **Shared**  
+  - Angular Material setup.
+  - variable sccs
+- **State Management**  
+  - Lightweight `ComponentStore` (NgRx) per feature.
+- **Backend service**  
+  - Interceptor simulating API responses.
+- **Presentation**  
+  - Angular Material UI components + responsive SCSS.
+
+Approach
+- **Separation of concerns** (core vs features vs shared).
+- **Reactive** state management with RxJS & ComponentStore.
+- **Self-contained**: no external backend needed.
+- **Best practices**: lazy loading, guards, interceptors, unit tests.
+- **Human-readable code**: clean structure, not AI-generated boilerplate.
+
+---
+
+ Setup Instructions
+
+1. Clone repository
+```bash
+git clone https://github.com/<your-username>/caremonitor.git
+cd caremonitor
