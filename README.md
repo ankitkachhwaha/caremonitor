@@ -67,9 +67,19 @@ Approach
 
 ---
 
- Setup Instructions
+Setup Instructions
 
 1. Clone repository
 ```bash
 git clone https://github.com/<your-username>/caremonitor.git
 cd caremonitor
+
+2. Install dependencies
+    npm install
+
+3. Run the app
+    ng serve
+
+4. Run tests
+    ng test --code-coverage
+
