@@ -1,0 +1,17 @@
+@import "../../assest/variables.scss";
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+.card { 
+  padding: 12px;
+ }
+.center { 
+  display: flex; 
+  justify-content: center; 
+  margin: 24px 0; 
+}
+.error { 
+  color: $error;
+ }

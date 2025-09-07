@@ -1,0 +1,19 @@
+@import "../app/assest/variables.scss";
+.spacer { flex: 1; }
+ .app-logo {
+    height: 40px;
+    width: auto;
+  }
+mat-toolbar{
+    // box-shadow: -5px -1px 2px 4px #ccc;
+    box-shadow: inset 0px -3px 0px 1px rgba(0, 0, 0, .08);
+    background: $whiteColor;
+
+    span{
+        color: $primaryBlue;
+    }
+
+    button{
+        background-color: $primaryBlue;
+    }
+}

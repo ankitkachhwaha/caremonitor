@@ -1,0 +1,5 @@
+<mat-card>
+  <h2>Welcome<span *ngIf="(userStore.email | async) as email">, {{ email }}</span>!</h2>
+  <p>This is your dashboard.</p>
+  <a mat-raised-button class="button-lg"  routerLink="/list">Go to List Page</a>
+</mat-card>

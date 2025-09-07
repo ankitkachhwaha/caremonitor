@@ -1,0 +1,14 @@
+<h2>Items</h2>
+
+<div class="center" *ngIf="store.loading | async">
+  <mat-spinner diameter="42"></mat-spinner>
+</div>
+
+<p class="error" *ngIf="(store.error | async) as error">{{ error }}</p>
+
+<div class="grid" *ngIf="(store.items | async) as items">
+  <mat-card *ngFor="let it of items" class="card">
+    <h3>{{ it.name }}</h3>
+    <p>{{ it.description }}</p>
+  </mat-card>
+</div>

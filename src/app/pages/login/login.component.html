@@ -1,0 +1,33 @@
+<mat-card class="login-card">
+  <h2>Sign in</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email" placeholder="you@example.com" />
+       <mat-error *ngIf="form.controls['email'].hasError('required')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="form.controls['email'].hasError('email')">
+        Enter a valid email
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" type="password" placeholder="••••••••" />
+       <mat-error *ngIf="form.controls['password'].hasError('required')">
+        Password is required
+      </mat-error>
+      <mat-error *ngIf="form.controls['password'].hasError('minlength')">
+        Password must be at least 6 characters
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button  class="full" [disabled]="loading() || form.invalid">
+      <ng-container *ngIf="!loading(); else spin">Login</ng-container>
+      <ng-template #spin><mat-spinner diameter="18"></mat-spinner></ng-template>
+    </button>
+    <p class="error" *ngIf="error()">{{ error() }}</p>
+  </form>
+</mat-card>

@@ -1,0 +1,10 @@
+@import "../../assest/variables.scss";
+mat-card { 
+    max-width: 720px; 
+    margin: 24px auto; 
+    padding: 24px; 
+    .button-lg{
+        background-color: $primaryBlue;
+        color: $whiteColor;
+    }
+}
